@@ -11,4 +11,11 @@
 ##### 출처: [Mulit-Datacenter Training: OpenAI’s Ambitious Plan to Beat Google’s Infrastructure](https://github.com/synabreu/SemiAnalysisKor/Multidatacenter-20240904.md) #####
 <br>
 
+#### 훈련 확장: 새로운 패러다임과 기존 패러다임의 지속 ####
+
+##### 현실적으로, 대부분의 파트타임 전망가들이 초점을 맞춰온 사전 학습(pre-training) 외에도 스케일링에는 훨씬 더 많은 차원이 존재한다. OpenAI의 o1 릴리스는 추론(reasoning) 모델의 유용성과 잠재력을 증명하며, 스케일링을 위한 새로운 미개척 영역을 열어주었다. 그러나 더 많은 연산 자원을 투입해 모델 성능을 향상시키는 기술은 이것 만이 아니다. 합성 데이터 생성(Synthetic Data Generation), PPO(Proximal Policy Optimization), 함수 검증기(Functional Verifiers), 그리고 추론을 위한 기타 학습 인프라 등 여러 분야가 추가적인 연산 투입을 통해 모델 성능을 개선할 수 있다. 이처럼 스케일링의 지형은 여전히 변하고 진화 중이며, 그에 따라 전체적인 AI 개발 프로세스 역시 가속을 거듭하고 있다. #####
+##### 부정확한 벤치마크에서 더 까다로운 벤치마크로 전환하면 진척 상황을 더욱 제대로 측정할 수 있게 될 것이다. 본 보고서에서는 기존의 사전 학습 스케일링 추세 뿐만 아니라 사후 학습(post-training) 및 추론 단계에서의 새로운 스케일링 추세도 다룰 예정이다. 여기에는 새로운 기법들이 한계를 어떻게 확장해 나가는지, 그리고 이전에 생각했던 것보다 훨씬 더 많은 학습 시간용 연산 스케일링이 왜 필요한지에 대한 내용도 포함된다. #####
+##### 우리는 OpenAI의 o1 및 o1 Pro 아키텍처를 학습 인프라 측면과 추론 토크노믹스(tokenomics) 관점에서 살펴볼 것이다. 여기에는 비용, KV Cache 스케일링, 배치 처리(batch) 등의 주제가 포함된다. 또한 주요 AI 연구소들의 합성 데이터 및 강화 학습(RL) 인프라도 깊이 다룰 것이다. 마지막으로, Anthropic의 Claude 3.5 Opus와 OpenAI의 Orion 관련 “실패” 사례에 대한 진상을 바로잡고, 향후 스케일링 계획에 대해 논의하고자 한다. #####
+
+
 
