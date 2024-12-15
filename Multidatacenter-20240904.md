@@ -12,7 +12,8 @@
 ##### 대부분의 기업은 이제 막 [Nvidia의 GB200 아키텍처](https://semianalysis.com/2024/07/17/gb200-hardware-architecture-and-component/)를 기반으로 한 고밀도 액체 냉각 AI 칩에 도입되고 있으며, 내년에는 수백만 개의 유닛으로 확대될 예정이다. 반면, 구글은 이미 액체 냉각 TPU를 수백만 개 배치하여 1기가와트(GW)가 넘는 액체 냉각 AI 칩 용량을 확보하고 있다. 구글의 인프라와 경쟁사의 인프라 간의 뚜렷한 차이는 누구나 쉽게 확인할 수 있을 정도로 명확하다. #####
 
 <p align="center"><img src = "./scalinglaw-20241211/images01.xxx"></p>
-<p align="left" style="color: gray;" size="10">출처: [SemiAnalysus Datacenter Model](https://semianalysis.com/datacenter-industry-model/)</p>
+<a href="https://semianalysis.com/2024/03/13/ai-datacenter-energy-dilemma-race/" target="_blank" align="left" style="color: gray;" size="10" target="_blank">출처: SemiAnalysus Datacenter Model</a>
+
 
 ##### 위에 표시된 AI 학습 캠퍼스는 이미 약 300MW의 전력 용량을 갖추고 있으며, 내년에는 500MW로 확장될 예정이다. 이러한 규모뿐만 아니라, 이 시설들은 매우 높은 에너지 효율성을 자랑한다. 아래에서는 대형 냉각탑과 중앙 집중식 시설용수 시스템이 세 건물을 연결하는 물 파이프와 함께 작동하며, 약 200MW의 열을 방출할 수 있는 시스템을 볼 수 있다. 이 시스템 덕분에 Google은 대부분의 기간 동안 냉각기를 사용하지 않고도 운영할 수 있으며, 2023년 최신 환경 보고서에 따르면 1.1 PUE(Power Usage Effectiveness(PUE)를 달성했다. #####
 
