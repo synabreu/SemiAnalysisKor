@@ -8,7 +8,7 @@
 
 ##### 이러한 불안감에도 불구하고, 대형 AI 연구소들과 하이퍼스케일러들의 데이터센터 구축 가속과 막대한 자본 지출은 그 자체로 분명한 메시지를 전한다. 예를 들어, 아마존은 Trainium2 커스텀 실리콘 개발을 가속화하고, 총 65억 달러 규모의 IT 및 데이터센터 투자를 통해 Anthropic을 위해 40만 개의 칩을 준비하고 있다. 메타는 2026년까지 루이지애나에 총 2GW급의 데이터센터를 건설할 계획이며, OpenAI와 구글 역시 단일 사이트 전력 한계를 극복하기 위해 공격적인 다중 데이터센터 훈련 계획을 내놓고 있다. 이러한 주요 의사결정자들은 스케일링 법칙이 여전히 유효하다는 확신을 조금도 흔들지 않는 듯하다. 왜 그럴까? #####
 <br>
-##### 출처: [Mulit-Datacenter Training: OpenAI’s Ambitious Plan to Beat Google’s Infrastructure(https://github.com/synabreu/SemiAnalysisKor/Multidatacenter-20240904.md) #####
+##### 출처: [Mulit-Datacenter Training: OpenAI’s Ambitious Plan to Beat Google’s Infrastructure](https://github.com/synabreu/SemiAnalysisKor/Multidatacenter-20240904.md) #####
 <br>
 
 
