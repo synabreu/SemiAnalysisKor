@@ -6,9 +6,7 @@ SemiAnalysisKor provides the Korean translation of SemiAnalysis Service
 
 <br></br>
 
-##### Overview: SemiAnalysis is a subscription-based service that provides research and models on the semiconductor and AI industries, available both for free and paid access. Their articles analyze various aspects, including AI scaling laws, challenges faced by companies like Intel, strategies of firms such as Amazon, and the impact of sanctions evasion by Chinese companies. They also sell industry models related to AI accelerators, datacenter capacity, and wafer fabrication. SemiAnalysis primarily focuses on the economic and technological factors driving the AI revolution and the semiconductor industry.
-
-Therefore, I only study the free content translated into Korean language. All copyrights for these blog articles belong solely to SemiAnalysis and not to me. Reproducing these articles in any commercial reports without a license may result in legal consequences. #####
+##### Overview: SemiAnalysis is a subscription-based service that provides research and models on the semiconductor and AI industries, available both for free and paid access. Their articles analyze various aspects, including AI scaling laws, challenges faced by companies like Intel, strategies of firms such as Amazon, and the impact of sanctions evasion by Chinese companies. They also sell industry models related to AI accelerators, datacenter capacity, and wafer fabrication. SemiAnalysis primarily focuses on the economic and technological factors driving the AI revolution and the semiconductor industry. Therefore, I only study the free content translated into Korean language. All copyrights for these blog articles belong solely to SemiAnalysis and not to me. Reproducing these articles in any commercial reports without a license may result in legal consequences. #####
 
 <br></br>
 
