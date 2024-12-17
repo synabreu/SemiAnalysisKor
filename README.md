@@ -12,4 +12,5 @@ SemiAnalysisKor provides the Korean translation of SemiAnalysis Service
 
 ##### [1. 스케일링 법칙 ](https://github.com/synabreu/SemiAnalysisKor/ScalingLaw-20241211.md) #####
 ##### [2. 멀티 데이터센터 학습: 구글의 인프라를 넘어서는 OpenAI의 야심찬 계획](https://github.com/synabreu/SemiAnalysisKor/Multidatacenter-20240904.md) #####
-
+##### [3. GB200 하드웨어 - 컴포넌트 공급 체인 & BOM](https://github.com/synabreu/SemiAnalysisKor/gb200-20240717.md) #####
+##### [4. 구글AI 인프라스트럭처 우위: 마이크로아키텍처보다 시스템이 더 중요](https://github.com/synabreu/SemiAnalysisKor/gb200-20240717.md) #####
