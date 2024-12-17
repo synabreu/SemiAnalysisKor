@@ -58,3 +58,14 @@
 <a href="https://semianalysis.com/2024/03/13/ai-datacenter-energy-dilemma-race/" target="_blank" align="left" style="color: gray;" size="10" target="_blank">출처: SemiAnalysus Datacenter Model</a>
 
 ##### Google의 오하이오(Ohio)와 아이오와/네브래스카(Iowa/Nebraska) 집중 지역은 추가적으로 상호 연결되어 단일 모델 학습에 수 기가와트의 전력을 제공할 수 있을 것이다. 우리는 [Datacenter Model을 통해 5,000개 이상의 데이터센터에 대한 분기별 과거 및 예측 전력 데이터를 정확히 상세히 제공한다.](https://semianalysis.com/datacenter-industry-model/) 여기에는 AI 연구소, 하이퍼스케일러, 네오클라우드, 엔터프라이즈를 위한 클러스터 구축 현황이 포함되어 있다. 멀티 데이터센터 학습을 위한 소프트웨어 스택과 방법에 대한 내용은 이 보고서 후반부에서 더 자세히 다룰 예정이다. #####
+
+### 2. Microsoft and OpenAI Strike Back? ###
+
+##### Microsoft와 OpenAI는 단기적으로 인프라에서 불리한 위치에 있다는 것을 잘 알고 있으며, 이를 극복하기 위해 Google을 능가하는 놀랍도록 야심찬 인프라 구축에 나섰다. 이들은 수냉식 멀티 데이터센터 학습 클러스터라는 Google의 전략을 그들 방식대로 이기려고 시도하고 있다. #####
+
+##### Microsoft와 OpenAI는 기가와트(GW)급에 가까운 초고밀도 액체 냉각 데이터센터 캠퍼스를 건설하고 있으며, Oracle, Crusoe, CoreWeave, QTS, Compass 등과 같은 기업들과 협력해 Google보다 더 큰 AI 학습 및 추론 용량을 달성하려 하고 있다. #####
+
+##### 이들 캠퍼스 중 일부는 완공되면 현재 Google의 어떤 개별 캠퍼스보다도 규모가 더 커질 것이다. 실제로 Microsoft의 위스콘신(Wisconsin) 캠퍼스는 완공되면 Google의 오하이오 지역 전체를 합친 것보다도 더 클 예정이지만, 이를 구축하는 데는 시간이 걸릴 것이다. #####
+
+##### 더욱 야심찬 계획은 OpenAI와 Microsoft가 여러 초대형 캠퍼스를 상호 연결해 전국적으로 거대한 분산 학습(distributed training) 작업을 실행하려 한다는 점이다. Microsoft와 OpenAI는 멀티 기가와트 컴퓨팅 시스템을 가장 먼저 구축할 것으로 보인다. 이들은 공급망 파트너들과 함께 역사상 가장 야심찬 인프라 구축 프로젝트를 심도 있게 추진 중이다. #####
+
