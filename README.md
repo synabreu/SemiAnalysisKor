@@ -6,11 +6,13 @@ SemiAnalysisKor provides the Korean translation of SemiAnalysis Service
 
 <br></br>
 
-##### Overview: SemiAnalysis is a subscription-based service that provides research and models on the semiconductor and AI industries, available both for free and paid access. Their articles analyze various aspects, including AI scaling laws, challenges faced by companies like Intel, strategies of firms such as Amazon, and the impact of sanctions evasion by Chinese companies. They also sell industry models related to AI accelerators, datacenter capacity, and wafer fabrication. SemiAnalysis primarily focuses on the economic and technological factors driving the AI revolution and the semiconductor industry. Therefore, I only study the free content translated into Korean language. All copyrights for these blog articles belong solely to SemiAnalysis and not to me. Reproducing these articles in any commercial reports without a license may result in legal consequences. #####
+Overview: SemiAnalysis is a subscription-based service that provides research and models on the semiconductor and AI industries, available both for free and paid access. Their articles analyze various aspects, including AI scaling laws, challenges faced by companies like Intel, strategies of firms such as Amazon, and the impact of sanctions evasion by Chinese companies. They also sell industry models related to AI accelerators, datacenter capacity, and wafer fabrication. SemiAnalysis primarily focuses on the economic and technological factors driving the AI revolution and the semiconductor industry. Therefore, I only study the free content translated into Korean language. All copyrights for these blog articles belong solely to SemiAnalysis and not to me. Reproducing these articles in any commercial reports without a license may result in legal consequences. 
 
 <br></br>
 
-##### [1. 스케일링 법칙 ](https://github.com/synabreu/SemiAnalysisKor/ScalingLaw-20241211.md) #####
+
+
+##### [1. 스케일링 법칙 ](https://github.com/synabreu/SemiAnalysisKor/blob/main/ScalingLaw-20241211.md) #####
 ##### [2. 멀티 데이터센터 학습: 구글의 인프라를 넘어서는 OpenAI의 야심찬 계획](https://github.com/synabreu/SemiAnalysisKor/Multidatacenter-20240904.md) #####
 ##### [3. GB200 하드웨어 - 컴포넌트 공급 체인 & BOM](https://github.com/synabreu/SemiAnalysisKor/gb200-20240717.md) #####
 ##### [4. 구글AI 인프라스트럭처 우위: 마이크로아키텍처보다 시스템이 더 중요](https://github.com/synabreu/SemiAnalysisKor/googleai-20230412.md) #####
