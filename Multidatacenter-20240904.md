@@ -69,3 +69,42 @@
 
 ##### 더욱 야심찬 계획은 OpenAI와 Microsoft가 여러 초대형 캠퍼스를 상호 연결해 전국적으로 거대한 분산 학습(distributed training) 작업을 실행하려 한다는 점이다. Microsoft와 OpenAI는 멀티 기가와트 컴퓨팅 시스템을 가장 먼저 구축할 것으로 보인다. 이들은 공급망 파트너들과 함께 역사상 가장 야심찬 인프라 구축 프로젝트를 심도 있게 추진 중이다. #####
 
+##### 이 보고서의 후반부에서는 Microsoft와 OpenAI의 인프라 구축에 대해 자세히 다룰 예정이다. 그 전에 먼저 멀티 캠퍼스 동기식 및 비동기식 학습 방법, 스트래글러(stragglers), 결함 허용(fault tolerance), 무음 데이터 손상(silent data corruption) 및 멀티 데이터센터 학습과 관련된 다양한 도전 과제를 설명할 것이다. #####
+
+##### 그 다음으로는 데이터센터 간의 상호 연결(datacenter interconnect)이 어떻게 이루어지는지, 그리고 광통신 네트워크를 통한 데이터센터 간 메트로 및 장거리 연결(long-haul connectivity)이 어떤 기술 및 장비를 통해 구현되는지에 대해 설명할 것이다. #####
+
+##### 마지막으로 통신 공급망(telecom supply chain)을 탐구하고, 다음 단계의 AI 인프라 구축에서 주요 수혜자가 될 기업들과 이러한 구축에 가장 큰 지렛대 효과를 얻을 것으로 예상되는 기업들을 논의할 것이다. #####
+
+### 3. Muti-Datacenter Distributed Training ###
+
+##### Microsoft와 OpenAI의 인프라 구축을 다루기 전에 먼저 분산 학습에 대한 기초 설명을 하겠다. **대형 언어 모델(LLM)**은 주로 **동기식(synchronous)**으로 학습된다. 학습 데이터는 일반적으로 여러 개의 작은 미니 배치(mini-batch)로 나누어지며, 각 미니 배치는 서로 다른 GPU 세트에서 실행되는 모델의 별도 데이터 복제본(replica)에 의해 처리된다. 각 복제본은 미니 배치를 처리한 후 기울기(gradients)를 계산하며, 모든 복제본은 각 미니 배치 처리 후 동기화를 수행해야 한다. #####
+
+##### 이 동기화 과정에서는 모든 복제본에서 계산된 기울기를 **집합 통신(all-reduce)**과 같은 집단 통신 연산을 통해 집계한다. 기울기가 집계된 후 평균을 내어 모델의 파라미터를 일괄적으로 업데이트하는 데 사용된다. 이를 통해 모든 데이터 복제본이 동일한 파라미터 세트를 유지하게 되며, 모델이 안정적으로 수렴(converge)할 수 있도록 보장한다. #####
+
+##### 이 과정의 잠금 단계(lock-step) 특성상, 모든 장치들은 다음 단계로 이동하기 전에 서로의 작업이 완료되기를 기다려야 한다. 이를 통해 어떤 장치도 모델 상태에서 다른 장치보다 너무 앞서거나 뒤처지지 않도록 한다. #####
+
+<p align="center"><img src = "./scalinglaw-20241211/images10.png"></p>
+<a href="https://semianalysis.com/2024/03/13/ai-datacenter-energy-dilemma-race/" target="_blank" align="left" style="color: gray;" size="10" target="_blank">출처: Preferred Networks</a>
+
+##### 동기식 기울기 하강법(synchronous gradient descent)은 안정적인 수렴을 제공하지만, 특히 100,000개 이상의 칩을 하나의 학습 작업에 사용하게 되면 통신 오버헤드가 크게 증가한다는 문제가 있다. 동기식 학습의 특성상 엄격한 지연 시간(latency) 요구사항이 있으며, 데이터 교환이 거대한 버스트(burst)로 발생하기 때문에 모든 칩을 연결하는 대역폭이 매우 커야 한다. #####
+
+##### 여러 지역의 GPU를 동일한 학습 작업에 사용하려고 시도하면, 이들 사이의 지연 시간이 증가한다. 광섬유에서 빛의 속도(초당 208,188km)로 계산하더라도, 미국 동부에서 미국 서부까지의 왕복 시간(RTT)은 43.2밀리초(ms)에 달한다. 여기에 다양한 통신 장비로 인한 추가 지연이 발생한다. 이는 상당한 지연 시간이며, 일반적인 동기식 학습으로 극복하기는 어렵다. #####
+
+##### 암달의 법칙(Amdahl’s Law)**에 따르면, 동기식 작업이 많은 경우 워크로드에 더 많은 칩을 추가해도 성능 향상의 효과는 점점 줄어든다. 칩을 추가할수록 프로그램 실행 시간 중 동기화가 필요한 부분(즉, 병렬화할 수 없는 직렬 계산 비율)이 그대로 유지되면, 이론적으로 GPU 수를 두 배로 늘려도 전체 처리량이 1% 이상 증가하지 않는 한계에 도달하게 된다. #####
+
+<p align="center"><img src = "./scalinglaw-20241211/images11.png"></p>
+<a href="https://semianalysis.com/2024/03/13/ai-datacenter-energy-dilemma-race/" target="_blank" align="left" style="color: gray;" size="10" target="_blank">출처: Preferred Networks</a>
+
+##### 암달의 법칙에서 설명된 단일 워크로드에 더 많은 GPU를 추가하는 것의 이론적 한계 외에도, 동기식 기울기 하강법(Synchronous Gradient Descent)에는 스트래글러(Stragglers)와 같은 실질적인 문제도 존재한다. 스트래글러는 특정 칩 하나가 10% 더 느려질 경우 전체 학습 실행이 10% 느려지는 문제를 초래한다. #####
+
+##### 예를 들어, 아래 다이어그램에서 ByteDance는 학습 단계 7,500부터 19,000까지 MFU(Maximum Floating-Point Utilization)가 서서히 감소하는 현상을 경험했는데, 이는 워크로드 내의 칩들 중 일부가 하나씩 조금씩 느려지면서 전체 워크로드가 스트래글러에 의해 제약(straggler-bound)되었기 때문이다. #####
+
+<p align="center"><img src = "./scalinglaw-20241211/images12.png"></p>
+<a href="https://semianalysis.com/2024/03/13/ai-datacenter-energy-dilemma-race/" target="_blank" align="left" style="color: gray;" size="10" target="_blank">출처: ByteDance</a>
+
+##### 스트래글러를 확인하고 제거한 후, ByteDance는 체크포인트에서 학습 워크로드를 재시작하여 MFU(Maximum Floating-Point Utilization)를 정상 수준으로 되돌렸다. 보시다시피, MFU는 40%에서 30%로 감소했으며, 이는 25%의 감소율에 해당한다. #####
+
+##### 100만 개의 GPU를 운영하는 상황에서 MFU가 25% 감소한다는 것은 약 25만 개의 GPU가 언제든지 유휴 상태로 있는 것과 같다. 이는 IT 자본 지출(IT Capex) 비용만으로도 100억 달러 이상의 손실에 해당한다. #####
+
+
+
