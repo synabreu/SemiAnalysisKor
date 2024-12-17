@@ -93,7 +93,7 @@
 ##### 암달의 법칙(Amdahl’s Law)**에 따르면, 동기식 작업이 많은 경우 워크로드에 더 많은 칩을 추가해도 성능 향상의 효과는 점점 줄어든다. 칩을 추가할수록 프로그램 실행 시간 중 동기화가 필요한 부분(즉, 병렬화할 수 없는 직렬 계산 비율)이 그대로 유지되면, 이론적으로 GPU 수를 두 배로 늘려도 전체 처리량이 1% 이상 증가하지 않는 한계에 도달하게 된다. #####
 
 <p align="center"><img src = "./scalinglaw-20241211/images11.png"></p>
-<a href="https://semianalysis.com/2024/03/13/ai-datacenter-energy-dilemma-race/" target="_blank" align="left" style="color: gray;" size="10" target="_blank">출처: Preferred Networks</a>
+<a href="https://semianalysis.com/2024/03/13/ai-datacenter-energy-dilemma-race/" target="_blank" align="left" style="color: gray;" size="10" target="_blank">출처: Wikipedia</a>
 
 ##### 암달의 법칙에서 설명된 단일 워크로드에 더 많은 GPU를 추가하는 것의 이론적 한계 외에도, 동기식 기울기 하강법(Synchronous Gradient Descent)에는 스트래글러(Stragglers)와 같은 실질적인 문제도 존재한다. 스트래글러는 특정 칩 하나가 10% 더 느려질 경우 전체 학습 실행이 10% 느려지는 문제를 초래한다. #####
 
