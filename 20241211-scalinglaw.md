@@ -60,12 +60,16 @@ Source: Nvidia (이미지 있음)
 
 이미지. Source: RE-Bench: Evaluating frontier AI R&D capabilities of language model agents against human experts![image](https://github.com/user-attachments/assets/60a8d580-624d-4afa-a414-b7d806235424)
 
-또 다른 추세는 평가에 극도로 어렵고 전문가 수준의 문제를 포함하는 것이다. 대표적인 예로는 대학원 수준의 구글 검색 무력화 Q&A 벤치마크(Graduate-Level Google-Proof Q&A Benchmark, 이하 GPQA)와 Frontier Math가 있다. GPQA는 화학, 생물학, 물리학 분야에 걸쳐 총 448개의 객관식 문항으로 구성된다. 참고로 OpenAI는 전문성 있는 인간(예: 박사학위 소지자들)이 GPQA 다이아몬드(Diamond) 난이도에서 약 70%를 득점하는 반면, o1은 같은 문제 세트에서 78%를 기록했다고 밝혔다. 지난해, GPT-4에 검색 기능(및 CoT 기반의 기권 처리)을 적용한 경우 GPQA 다이아몬드 난이도에서 39%를 기록했다.
-또한 극도로 어려운 문제를 활용하는 또 다른 예는 FrontierMath(FM)이다. FM은 수백 개의 독창적인 수학 문제로 이루어져 있으며, 사람이 문제를 해결하는 데 몇 시간에서 며칠까지 걸릴 수 있다. 여기에는 수론, 실해석학 등 폭넓은 수학 분야가 포함된다. 이 평가의 핵심은 문제를 공개하지 않아 데이터 오염 위험을 최소화한다는 점이며, 자동 검증기를 통해 채점할 수 있어 평가 과정을 단순화할 수 있다는 것이다.
+##### 또 다른 추세는 평가에 극도로 어렵고 전문가 수준의 문제를 포함하는 것이다. 대표적인 예로는 대학원 수준의 구글 검색 무력화 Q&A 벤치마크(Graduate-Level Google-Proof Q&A Benchmark, 이하 GPQA)와 Frontier Math가 있다. GPQA는 화학, 생물학, 물리학 분야에 걸쳐 총 448개의 객관식 문항으로 구성된다. 참고로 OpenAI는 전문성 있는 인간(예: 박사학위 소지자들)이 GPQA 다이아몬드(Diamond) 난이도에서 약 70%를 득점하는 반면, o1은 같은 문제 세트에서 78%를 기록했다고 밝혔다. 지난해, GPT-4에 검색 기능(및 CoT 기반의 기권 처리)을 적용한 경우 GPQA 다이아몬드 난이도에서 39%를 기록했다. ##### 
+##### 또한 극도로 어려운 문제를 활용하는 또 다른 예는 FrontierMath(FM)이다. FM은 수백 개의 독창적인 수학 문제로 이루어져 있으며, 사람이 문제를 해결하는 데 몇 시간에서 며칠까지 걸릴 수 있다. 여기에는 수론, 실해석학 등 폭넓은 수학 분야가 포함된다. 이 평가의 핵심은 문제를 공개하지 않아 데이터 오염 위험을 최소화한다는 점이며, 자동 검증기를 통해 채점할 수 있어 평가 과정을 단순화할 수 있다는 것이다. #####
 
 이미지. Source: FrontierMath: A Benchmark for Evaluating Advanced Mathematical Reasoning in AI![image](https://github.com/user-attachments/assets/11eeb615-fca2-425a-aac2-660eb2cee45c)
 
-이 벤치마크에서 현재 최고 성능을 보이는 모델은 2% 수준에 머물러 있지만, 연구소들은 이를 극적으로 향상시킬 수 있으리라 기대하고 있다. Anthropic은 중기적으로 FrontierMath에서 80% 달성을 내다보고 있다.
+##### 이 벤치마크에서 현재 최고 성능을 보이는 모델은 2% 수준에 머물러 있지만, 연구소들은 이를 극적으로 향상시킬 수 있으리라 기대하고 있다. Anthropic은 중기적으로 FrontierMath에서 80% 달성을 내다보고 있다. ##### 
+
+### 사후 학습: 새로운 스케일링 영역 ###
+
+
 
 
 
