@@ -6,7 +6,7 @@ SemiAnalysisKor provides the Korean translation of SemiAnalysis Service
 <p style="font-size: 8px;"> Overview: SemiAnalysis is a subscription-based service that provides research and models on the semiconductor and AI industries, available both for free and paid access. Their articles analyze various aspects, including AI scaling laws, challenges faced by companies like Intel, strategies of firms such as Amazon, and the impact of sanctions evasion by Chinese companies. They also sell industry models related to AI accelerators, datacenter capacity, and wafer fabrication. SemiAnalysis primarily focuses on the economic and technological factors driving the AI revolution and the semiconductor industry. Therefore, I only study the free content translated into Korean language. All copyrights for these blog articles belong solely to SemiAnalysis and not to me. Reproducing these articles in any commercial reports without a license may result in legal consequences. </p>
 
 
-##### [NVIDIA의 크리스마스 선물: GB300 & B300 – 추론을 추론하기(Reasoning Inference), 아마존, 메모리, 공급망](https://github.com/synabreu/SemiAnalysisKor/blob/main/20241225-GB300.md) #####
+##### 2024년 12월 25일, [NVIDIA의 크리스마스 선물: GB300 & B300 – 추론을 추론하기(Reasoning Inference), 아마존, 메모리, 공급망](https://github.com/synabreu/SemiAnalysisKor/blob/main/20241225-GB300.md) #####
 
 ##### [1. 스케일링 법칙 ](https://github.com/synabreu/SemiAnalysisKor/blob/main/20241211-scalinglaw.md) #####
 ##### [2. 멀티 데이터센터 학습: 구글의 인프라를 넘어서는 OpenAI의 야심찬 계획](https://github.com/synabreu/SemiAnalysisKor/blob/main/20240904-multidatacenter.md) #####
