@@ -10,8 +10,7 @@ SemiAnalysisKor provides the Korean translation of SemiAnalysis Service
 
 [MI300X vs H100 vs H200 벤치마크 1부: 학습 – 여전히 강력한 CUDA 생태계](https://github.com/synabreu/SemiAnalysisKor/blob/main/20241222-mi300x.md)
 
-
-[스케일링 법칙](https://github.com/synabreu/SemiAnalysisKor/blob/main/20241211-scalinglaw.md)
+[스케일링 법칙 – O1 Pro 아키텍처, 추론 훈련 인프라, Orion 및 Claude 3.5 Opus의 ‘실패’](https://github.com/synabreu/SemiAnalysisKor/blob/main/20241211-scalinglaw.md)
 
 ##### [2. 멀티 데이터센터 학습: 구글의 인프라를 넘어서는 OpenAI의 야심찬 계획](https://github.com/synabreu/SemiAnalysisKor/blob/main/20240904-multidatacenter.md) #####
 ##### [3. GB200 하드웨어 - 컴포넌트 공급 체인 & BOM](https://github.com/synabreu/SemiAnalysisKor/blob/main/20240717-gb200.md) #####
