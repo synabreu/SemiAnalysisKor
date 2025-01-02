@@ -25,6 +25,7 @@ SemiAnalysis는 OpenAI의 o1 및 o1 Pro 아키텍처를 학습 인프라 측면�
 무어의 법칙이 끝났다는 주장 역시 반도체 업계가 직면한 또 다른 벽이지만, 최근에는 이 논쟁이 한결 잠잠해졌다. 엔비디아(Nvidia)와 같은 AI 선도 기업들이 완전히 새로운 몇 가지 차원을 따라 컴퓨트 성능을 대폭 향상시켜 왔기 때문이다. 첨단 패키징 기술은 입출력(I/O) 스케일링과 함께, 레티클 크기  한계를 넘어서는 총 실리콘 면적을 활용할 수 있게 하여 컴퓨트 성능의 지속적인 발전을 가능하게 했다. 또한 칩 내부와 칩 간의 병렬 컴퓨팅, 그리고 더 넓은 고대역폭 네트워킹 도메인의 구축은 특히 추론(inference) 작업에서 칩들이 대규모로 더 효율적으로 협력할 수 있는 기반을 마련했다. 
 
 ![Source: Nvidia](./20241211-scalinglaw/scale-03.webp)
+[Source: NVIDIA]
 
 2004년의 컴퓨터 애호가들과 마찬가지로, 주류 분석가들과 기자들은 여전히 나무만 보고 숲을 못 보고 있다. 특정 추세가 둔화되는 것처럼 보여도, 스케일링과 확장에 적합한 새로운 패러다임들이 등장함에 따라 업계 전반은 여전히 폭발적인 속도로 전진하고 있는 것이다. ‘스케일링 법칙들’을 중첩 시키는 것도 가능하다. 즉, 사전 학습은 개선을 위한 여러 벡터 중 하나에 불과해질 것이고, 종합적인 ‘스케일링 법칙’은 지난 50여 년 동안 무어의 법칙이 그래왔듯 계속해서 스케일링을 지속할 것이다. 
 
@@ -58,14 +59,12 @@ SemiAnalysis는 OpenAI의 o1 및 o1 Pro 아키텍처를 학습 인프라 측면�
 새로운 평가 지표들은 모델들을 보다 세밀하게 구분하고, 직접적으로 유용한 특정 응용 분야에 초점을 맞추고 있다. 오늘날 가장 중요한 평가 중 하나인 SWE-Bench는 오픈소스 파이썬 저장소의 GitHub 이슈를 사람이 검토한 문제를 모델이 해결하도록 하는 것을 목표로 한다. 최근 클로드(Claude) 3.5 Sonnet 모델은 SWE-Bench Verified 기준 49%라는 최첨단(State of the Art) 성능을 달성했지만, 대부분의 모델들은 훨씬 낮은 수준에 머무르고 있다.
 또 다른 예로는 AI 연구개발(R&D) 능력을 조사하는 벤치마크가 있는데, 일부 사람들은 이를 “가장 주목해야 할 능력”이라고 평가한다. 리서치 엔지니어링 벤치마크(RE, Research Engineering Benchmark)는 7개의 도전적이고 개방형인 ML 연구 환경으로 구성되어 있다. 인간은 일반적으로 더 긴 시간 범위에서 평가를 잘 수행하지만, 2시간이라는 짧은 시간 범위에서 최고 수준의 AI 에이전트들은 인간보다 4배 높은 점수를 달성했다. 현재 인간이 우위를 점하고 있는 위와 같은 중요한 과제들은 추론 시점 연산 능력(inference time compute)을 스케일링 하는 데에 딱 맞는 시험 무대다. 우리는 이러한 형태의 스케일링을 더 잘 활용하는 모델들이 미래에는 인간을 능가할 것으로 예상한다. 
 
-![Source: RE-Bench: Evaluating frontier AI R&D capabilities of language model agents against human experts](./20241211-scalinglaw/scale-04.webp)
-![Source:](https://metr.org/AI_R_D_Evaluation_Report.pdf)
+![Source: RE-Bench: Evaluating frontier AI R&D capabilities of language model agents against human experts](./20241211-scalinglaw/scale-04.webp) Source: [RE-Bench: Evaluating frontier AI R&D capabilities of language model agents against human experts (https://metr.org/AI_R_D_Evaluation_Report.pdf)
 
 또 다른 추세는 평가에 극도로 어렵고 전문가 수준의 문제를 포함하는 것이다. 대표적인 예로는 대학원 수준의 구글 검색 무력화 Q&A 벤치마크(Graduate-Level Google-Proof Q&A Benchmark, 이하 GPQA)와 Frontier Math가 있다. GPQA는 화학, 생물학, 물리학 분야에 걸쳐 총 448개의 객관식 문항으로 구성된다. 참고로 OpenAI는 전문성 있는 인간(예: 박사학위 소지자들)이 GPQA 다이아몬드(Diamond) 난이도에서 약 70%를 득점하는 반면, o1은 같은 문제 세트에서 78%를 기록했다고 밝혔다. 지난해, GPT-4에 검색 기능(및 CoT 기반의 기권 처리)을 적용한 경우 GPQA 다이아몬드 난이도에서 39%를 기록했다. 
 또한 극도로 어려운 문제를 활용하는 또 다른 예는 FrontierMath(FM)이다. FM은 수백 개의 독창적인 수학 문제로 이루어져 있으며, 사람이 문제를 해결하는 데 몇 시간에서 며칠까지 걸릴 수 있다. 여기에는 수론, 실해석학 등 폭넓은 수학 분야가 포함된다. 이 평가의 핵심은 문제를 공개하지 않아 데이터 오염 위험을 최소화한다는 점이며, 자동 검증기를 통해 채점할 수 있어 평가 과정을 단순화할 수 있다는 것이다. 
 
-![Source: FrontierMath: A Benchmark for Evaluating Advanced Mathematical Reasoning in AI](./20241211-scalinglaw/scale-05.webp)
-Source:![FrontierMath: A Benchmark for Evaluating Advanced Mathematical Reasoning in AI](https://arxiv.org/pdf/2411.04872)
+![Source: FrontierMath: A Benchmark for Evaluating Advanced Mathematical Reasoning in AI](./20241211-scalinglaw/scale-05.webp) Source:[FrontierMath: A Benchmark for Evaluating Advanced Mathematical Reasoning in AI](https://arxiv.org/pdf/2411.04872)
 
 이 벤치마크에서 현재 최고 성능을 보이는 모델은 2% 수준에 머물러 있지만, 연구소들은 이를 극적으로 향상시킬 수 있으리라 기대하고 있다. Anthropic은 중기적으로 FrontierMath에서 80% 달성을 내다보고 있다. 
 
