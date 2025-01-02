@@ -145,7 +145,7 @@ RLHF에서는 인간 주석자(human annotators)가 프롬프트에 대한 응�
 일반적으로, RLHF는 실제 최종 사용자가 관심을 가지고 선호 데이터를 제공한 작업에서 모델이 더 나은 성능을 발휘할 수 있도록 한다. Meta의 Llama 2-Chat은 RLHF를 여러 차례 거친 후, 도움이 되는 정도(Helpfulness)와 무해성(Harmlessness)과 같은 요소에서 훨씬 더 뛰어난 성능을 달성했다. 관련 논문은 RL을 통해 모델을 스케일링 할 때 추가적으로 사용된 연산 자원(compute)이 명확한 성과를 가져온다는 점을 보여준다.
 인간 생성 피드백 대신 합성 데이터를 활용하고, AI를 피드백의 주요 소스로 더 많이 의존하는 것이 가져오는 잠재적 이점은 더 많은 연산 자원을 사용하는 것을 정당화할 수 있다.
 
-![Source: Meta](/20241211-scalinglaw/scale-08.webp)
+![Source: Meta](/20241211-scalinglaw/scale-09.webp)
 Source: [Meta](https://ar5iv.labs.arxiv.org/html/2307.09288)
 
 그러나 RLHF에는 상당한 한계가 있다. 첫 번째로, RLHF 전체 라이프사이클을 실행하는 데 시간이 많이 소요된다. 생성된 다양한 응답을 인간 응답자에게 노출하고 피드백을 받기까지 시간이 필요하며, 이는 일반적으로 AI 회사가 모델 제공 시 프롬프트를 삽입해 피드백을 받거나, 인간 레이블러를 통해 이루어진다.
@@ -157,7 +157,7 @@ RLHF는 본질적으로 확장성이 어려운 방법이다. 특히 기존 데�
 DPO는 보상 모델을 훈련하는 과정을 완전히 생략하고, 대신 최적화를 통해 정책(policy)을 직접 조정하여 인간 선호 데이터를 기반으로 모델이 선호되는 출력을 생성하도록 유도하는 확률을 극대화한다. 이 최적화는 현재 모델과 기준 모델(일반적으로 미세조정 이전의 동일 모델) 간의 확률 비율을 비교하는 이진 교차 엔트로피 손실(binary cross-entropy loss)을 활용한다. DPO는 모델이 선호되는 응답을 학습하도록 하면서도 기준 모델의 행동에 가깝게 유지되도록 보장한다.
 DPO의 더 간단한 접근 방식은 완전한 보상 모델을 사용하는 RLHF에 비해 비슷하거나 더 나은 결과를 달성할 수 있으며, 크래시(crash)가 덜 발생하고 구현이 더 쉽다. 이 접근 방식의 장점을 보여주는 대표적인 사례는 Llama 3가 RLHF를 거치지 않고 DPO를 적용한 경우이다. Meta는 Llama 3의 경우, DPO가 PPO보다 더 효과적이고 안정적이며, 연산 자원도 덜 소모된다는 점을 발견했다. 그러나 DPO를 사용하는 경우 선호 데이터 세트의 품질이 매우 중요하다. 따라서 이 데이터를 수집하고 처리하는 방식에 대해 더 많은 주의와 신경을 기울일 필요가 있다.
 
-![Source: Meta](/20241211-scalinglaw/scale-09.webp)
+![Source: Meta](/20241211-scalinglaw/scale-10.webp)
 Source: [Meta](https://arxiv.org/pdf/2407.21783)
 
 Meta는 결국 다른 연구소들이 이미 알고 있던 교훈을 깨달았다. DPO는 PPO만큼 확장성이 뛰어나지 않으며, 사후 학습(post training)을 계속 개선하기 위해서는 RLAIF로 전환해야 한다는 점이다. 이는 최신 LLAMA 3.3의 출시에서 입증되었다.
@@ -166,7 +166,7 @@ Meta는 결국 다른 연구소들이 이미 알고 있던 교훈을 깨달았�
 
 인간 피드백에 의존해 보상 모델을 훈련하는 대신, AI 피드백을 활용한 강화 학습(Reinforcement Learning with AI Feedback, RLAIF)은 인간 피드백을 다른 모델로 대체한다. 보상 모델은 AI가 생성한 피드백을 기반으로 훈련되며, 이는 일반적으로 특정 완성(completion)을 평가하고 이에 따라 보상을 결정하는 형태의 스코어링 모델(scoring model)이나 알고리즘을 사용한다.
 
-![Source: RLAIF vs RLHF: Scaling Reinforcement Learning from Human Feedback with AI Feedback](/20241211-scalinglaw/scale-10.webp) Source: [RLAIF vs RLHF: Scaling Reinforcement Learning from Human Feedback with AI Feedback](https://arxiv.org/pdf/2309.00267)
+![Source: RLAIF vs RLHF: Scaling Reinforcement Learning from Human Feedback with AI Feedback](/20241211-scalinglaw/scale-11.webp) Source: [RLAIF vs RLHF: Scaling Reinforcement Learning from Human Feedback with AI Feedback](https://arxiv.org/pdf/2309.00267)
 
 전반적으로, RLAIF는 RLHF와 본질적으로 크게 다르지 않지만, 극적인 차이를 만들어낸다. 주석(annotation)을 빠르게 생성할 수 있으며, 합성적으로 생성된 프롬프트를 사용해 강화 학습 중인 모델이 추가 데이터나 학습이 필요한 영역에서 훈련을 받을 수 있도록 한다.
 RLAIF는 수학, 과학, 일반 상식과 같은 일반적인 작업에 대한 피드백을 제공하는 것 외에도, 윤리적 딜레마, 문화적 규범, 사회적 상호작용과 같은 더 미묘한 상황을 다루기 위한 피드백을 다른 대형 언어 모델(LLM)을 통해 빠르게 생성하고 순위를 매길 수 있다. 이를 통해 모델이 정렬(alignment)되어야 하는 주제의 범위를 넓힐 수 있을 뿐만 아니라, 인간 피드백을 기다리지 않고도 해당 주제에 대한 학습을 빠르게 확대할 수 있다.
@@ -175,7 +175,7 @@ RLAIF의 독특한 활용 사례 중 하나는 Anthropic의 헌법적 AI(Constit
 헌법적 AI(Constitutional AI) 프로세스의 두 번째 단계는 RLHF와 유사하지만, 무해성(harmlessness)에 대한 피드백을 제공하는 인간 선호 데이터를 사용하지 않는다는 점에서 차이가 있다. AI는 이전 단계의 모델에서 생성된 응답 쌍을 헌법 원칙에 따라 평가하며, 이 원칙은 사실상 여러 보상 모델과 유사한 역할을 한다. AI가 생성한 무해성에 대한 선호 데이터는 인간 피드백 데이터를 활용한 유용성(helpfulness)에 대한 선호 데이터와 결합되어 **하이브리드 선호 모델(hybrid preference model)**을 훈련하는 데 사용된다. (여기서 “하이브리드”는 인간 데이터를 포함한다는 의미다.) 마지막으로, 첫 번째 단계의 모델은 이 선호 모델을 보상 신호로 사용해 RL을 통해 미세조정된다.
 이 접근 방식에서 가장 주목할 만한 점은 다양한 도메인에서 확장 가능하다는 것이다. 예를 들어, 무해성을 식별하는 능력 외에도 더 과학적으로 정확한 응답을 평가할 수 있는 모델이 있다면, 해당 모델을 활용해 과학적으로 정확한 응답을 최적화할 수도 있다.
 
-![Source: Anthropic Constitutional AI: Harmlessness from AI Feedback](/20241211-scalinglaw/scale-11.webp)Source: [Anthropic Constitutional AI: Harmlessness from AI Feedback](https://arxiv.org/abs/2212.08073)
+![Source: Anthropic Constitutional AI: Harmlessness from AI Feedback](/20241211-scalinglaw/scale-12.webp)Source: [Anthropic Constitutional AI: Harmlessness from AI Feedback](https://arxiv.org/abs/2212.08073)
 
 강화 학습(RL)은 연쇄적 사고(Chain of Thought, CoT)를 사용하는 추론 모델(reasoning models)을 개발하는 데에도 핵심적인 역할을 한다.
 
@@ -190,7 +190,7 @@ RLAIF의 독특한 활용 사례 중 하나는 Anthropic의 헌법적 AI(Constit
 두 번째는 검증 모델(Verifier Model)이다. 검증 모델은 생성기가 만들어낸 솔루션이 올바른 지 여부를 평가하고 이에 따른 보상을 제공하는 역할을 한다.
 검증 모델은 인간 주석(human annotation), 자동화된 프로세스 주석(automatic process annotation), 또는 자동 검증기(automatic verifiers)를 통해 훈련될 수 있다. 예를 들어, OpenAI의 논문 Let’s Verify Step by Step에서는 PRM800K 프로세스 수퍼비전 데이터세트(PRM800K Process Supervision Dataset)를 소개되었다. 이 데이터세트는 12,000개의 수학 데이터세트(MATH Dataset) 문제에 대한 75,000개의 솔루션에서 생성된 800,000개의 프로세스 단계를 인간 데이터 레이블러가 주석 처리한 것이다. 이 데이터세트는 논문에서 논의된 바와 같이 생성기 출력에 기반하여 작성되었다.
 
-![Source: Let’s Verify Step by Step](/20241211-scalinglaw/scale-12.webp)
+![Source: Let’s Verify Step by Step](/20241211-scalinglaw/scale-13.webp)
 Source: [Let’s Verify Step by Step](https://arxiv.org/pdf/2305.20050)
 
 이러한 주석(annotation)을 수집하는 비용은 결코 사소하지 않다. 원래의 Math 논문에서는 대학생 몇 명이 한 시간 동안 20개의 문제를 풀도록 했는데, 점수는 40%에서 90% 사이였으며, 90%를 기록한 학생은 국제수학올림피아드(IMO) 금메달을 세 번이나 수상한 사람이었다. OpenAI의 논문에서는 비용 문제를 언급하며, PRM 지향 데이터세트를 인간이 주석 처리하여 ORM 지향 데이터세트만큼 대규모로 구축하는 것은 현실적으로 불가능하다고 지적했다. 이는 공정한 비교(apples-to-apples comparison)를 수행하기 어렵게 만든다.
@@ -204,12 +204,12 @@ Source: [Let’s Verify Step by Step](https://arxiv.org/pdf/2305.20050)
       
 이 방법들은 인간 주석의 필요성을 줄이고 학습을 보다 효율적으로 진행할 수 있도록 돕는다.
 
-![Source: Math-Shepherd: Verify and Reinforce LLMs Step-by-step without Human Annotations](/20241211-scalinglaw/scale-13.webp)
+![Source: Math-Shepherd: Verify and Reinforce LLMs Step-by-step without Human Annotations](/20241211-scalinglaw/scale-14.webp)
 Source: [Math-Shepherd: Verify and Reinforce LLMs Step-by-step without Human Annotations](https://arxiv.org/pdf/2312.08935)
 
 네 번째 모델은 보상 모델(Reward Model)로, 프로세스 주석(process annotation) 레이블을 기반으로 훈련된다. 앞서 설명을 요약하자면, 보상 모델에는 두 가지 유형이 있다. 결과를 기준으로 보상을 제공하는 결과 보상 모델(Outcome Reward Model, ORM)과 프로세스를 기준으로 보상을 제공하는 프로세스 보상 모델(Process Reward Model, PRM)이다. ORM은 일반적으로 모델이 제공하는 다양한 답변을 순위로 매기고, 가장 높은 순위를 받은 답변을 선택하는 방식으로 작동한다. 이에 반해 PRM은 연쇄적 사고(Chain of Thought) 과정의 각 단계를 평가하고 점수를 부여하며, 이 점수를 기반으로 보상을 제공한다. 이러한 이유로 PRM은 연쇄적 사고 모델을 훈련할 때 선호된다. Let’s Verify Step by Step 논문에서는 PRM이 ORM보다 더 강력한 성과를 보여준 바 있다. 그렇긴 하지만 OpenAI는 여전히 ORM에 더 많이 의존하고 있다.
 
-![Source: Let’s Verify Step by Step](/20241211-scalinglaw/scale-14.webp)
+![Source: Let’s Verify Step by Step](/20241211-scalinglaw/scale-15.webp)
 Source: [Let’s Verify Step by Step](https://arxiv.org/pdf/2305.20050)
 
 Math-Shepherd에서는 단계별 근접 정책 최적화(Proximal Policy Optimization, PPO)를 활용한 강화 학습(Reinforcement Learning)을 통해 최종 대형 언어 모델(LLM)에 원하는 연쇄적 사고(Chain of Thought) 행동을 학습시키고 강화한다.
@@ -221,7 +221,7 @@ OpenAI의 o1 프리뷰 출시로 인해 업계는 새로운 스케일링 법칙�
 반면, 앞서 설명했듯이 추론 모델(Reasoning Models)은 응답을 사용자에게 전달하기 전에 연쇄적 사고(Chain of Thought)라 불리는 일련의 단계로 나눠서 처리한다. 추론 모델은 비논리적인 결론에 도달했을 경우, 오류가 발생했거나 특정 접근 방식이 막다른 길에 이르렀음을 인지하고 이전 단계를 다시 검토함으로써 추론 과정을 올바른 방향으로 되돌릴 수 있다.
 추론 모델 출시로 인해 두 가지 중요한 의미가 도출된다. 첫째, 코딩, 수학, 과학과 같은 고난도 평가에서 모델 성능이 눈에 띄게 향상될 가능성이 커졌다. 둘째, 이러한 성능 개선이 테스트 시점 연산(test-time compute)과 함께 확장될 수 있다는 점이 대형 언어 모델(LLM)에도 강력히 적용된다는 사실이 확인되었다.
 
-![Source: OpenAI](/20241211-scalinglaw/scale-15.webp)
+![Source: OpenAI](/20241211-scalinglaw/scale-16.webp)
 Source: [OpenAI](https://openai.com/index/learning-to-reason-with-llms/)
 
 테스트 시점 스케일링(test-time scaling)은 새로운 개념이 아니다. 바둑이나 포커 같은 게임에서는 테스트 시점 연산을 확장하는 개념이 이미 오래전부터 존재해왔다. 예를 들어, 딥마인드(DeepMind)의 바둑 시스템인 AlphaGo는 테스트 시점에 몬테카를로 트리 탐색(Monte Carlo Tree Search)을 사용해 최적의 수를 결정한다. 만약 추론 시점에서 이러한 탐색 기능이 제거된다면, AlphaGo의 Elo 등급은 약 5,200에서 3,000으로 하락하며(참고로 인간 최고 수준은 약 3,800), 추론 시점 연산 덕분에 AlphaGo는 바둑에서 초인적인 성과를 거둘 수 있었다.
@@ -229,17 +229,17 @@ Source: [OpenAI](https://openai.com/index/learning-to-reason-with-llms/)
 
 이는 추론 시스템 운영자들이 컨텍스트 길이를 합리적인 수준으로 유지하고 비용을 낮추기 위해 연쇄적 사고(Chain of Thought)의 길이를 제한하고 있다는 것을 의미한다. 이렇게 해야만 합리적인 토큰 대 토큰 지연(latency)으로 경제적인 사용자 수를 감당할 수 있다. 결과적으로, 현재의 추론 모델은 마치 한쪽 손이 묶인 상태에서 작동하고 있으며, GB200 NVL72와 같은 더 강력한 추론 시스템이 시장에 등장하면 성능이 크게 확장될 수 있을 것이다. 비용이 경제적으로 가능해지면, o1 모델이 자신의 추론 체인의 길이와 사용 연산량을 조정하도록 허용하는 것이 테스트 시점 연산 스케일링을 활용하는 중요한 기술이 될 것이다.
 
-![Source: OpenAI](/20241211-scalinglaw/scale-16.webp)
+![Source: OpenAI](/20241211-scalinglaw/scale-17.webp)
 Source: [OpenAI](https://openai.com/index/learning-to-reason-with-llms/)
 
 평가(evals)와 아래의 그래프에서 알 수 있듯이, 한 번의 시도로도 GPT-4o는 다른 모델들을 능가한다. 테스트 시점 연산을 스케일링하는 가장 단순한 방법은 단순히 동시에 실행되는 샘플의 수를 늘리는 것이다. 이는 사실상 무한 원숭이 정리(infinite monkey theorem)를 활용하는 방식이다. 논문 Large Language Monkeys는 단순히 반복 샘플링(repeated sampling)을 통해 추론 시점 연산을 스케일링할 수 있으며, 이를 통해 훨씬 더 나은 결과를 얻을 수 있음을 보여준다.
 
-![Source: Large Language Monkeys: Scaling Inference Compute with Repeated Sampling](/20241211-scalinglaw/scale-17.webp)
+![Source: Large Language Monkeys: Scaling Inference Compute with Repeated Sampling](/20241211-scalinglaw/scale-18.webp)
 Source: [Large Language Monkeys: Scaling Inference Compute with Repeated Sampling](https://arxiv.org/pdf/2407.21787)
 
 이는 아마도 검색(search)을 수행하는 가장 기본적인 방법 중 하나로 볼 수 있다. 더 많은 샘플을 생성하면 더 넓은 범위를 다룰 수 있는데, 이는 생성된 샘플 중 하나라도 정답에 도달하는 경우(예: pass@k)로 정의된다. 단순히 이러한 작은 모델들이 한 문제를 여러 번 생각하도록 하는 것이 더 정확하면서도 비용 효율적일 수 있다는 주장도 있을 수 있다. 그러나 우리가 비유적으로 “셰익스피어 전집”을 완성했음을 확인하려면 효과적인 검증기(verifier)가 필요할 것이다.
 
-![Source: The Simpsons](/20241211-scalinglaw/scale-18.webp)
+![Source: The Simpsons](/20241211-scalinglaw/scale-19.webp)
 “It was the best of times, it was the blurts of times”
 Source: The Simpsons
 
@@ -248,11 +248,13 @@ Source: The Simpsons
 검색(Search)은 OpenAI o1에서는 활용되지 않았지만 o1 Pro에서 활용되는 또 다른 스케일링 차원이다. o1은 테스트 시점(즉, 추론 중)에 여러 경로의 추론을 평가하거나 어떤 형태의 검색도 수행하지 않는다. Sasha Rush의 Speculations on Test-Time Scaling (o1) 비디오는 검색과 추론 모델과 관련된 다른 주제들에 대해 유용한 논의와 설명을 제공한다.
 자기 일관성(Self-Consistency) / 다수결(Majority Vote)은 이러한 검색 방법론 중 하나로, 프롬프트를 모델에 여러 번 통과시켜 다수의 응답을 생성한 다음, 주어진 샘플 수에서 가장 자주 등장하는 응답을 선택하여 정답으로 결정하는 방식이다.
 
-![Source: Sasha Rush](/20241211-scalinglaw/scale-19.webp)
+![Source: Sasha Rush](/20241211-scalinglaw/scale-20.webp)
+Source: Sasha Rush
 
 Best-of-N Sampling은 특정 프롬프트에 대해 N개의 솔루션을 생성한 다음, 검증 모델(verifier model)을 사용해 올바른 답으로 이어진 연쇄적 사고(Chain of Thought)를 식별하는 아이디어다. 이 방법은 일반적으로 검증이 가능한 영역(예: 스도쿠와 같은 문제, 에세이는 제외)에 제한되며, 검증 모델의 효과에 의해 그 성과가 좌우된다.
 
-![Source: Sasha Rush](/20241211-scalinglaw/scale-20.webp)
+![Source: Sasha Rush](/20241211-scalinglaw/scale-21.webp)
+Source: Sasha Rush
 
 몬테카를로 롤아웃(Monte Carlo roll-outs)은 Best-of-N 방법을 기반으로 한 기법이다. 이 기법에서는 특정 중간 단계를 평가하기 위해, 해당 중간 단계에서 시작하여 연쇄적 사고(Chain of Thought)를 완성하는 여러 경로를 생성한다. 이러한 평가는 해당 단계를 계속 진행할지, 아니면 잠재적인 다른 단계로 넘어갈지를 결정하는 데 도움을 주며, 전체적인 사고 과정의 질을 개선할 수 있다.
 이제 강화 학습(RL), 합성 데이터(Synthetic Data), 연쇄적 사고(Chain of Thought), 추론 시점 연산(Inference Time Compute) 및 기타 개념에 대해 논의했으니, OpenAI가 o1과 o1 Pro에서 학습 및 추론 중에 어떤 작업을 수행했는지 살펴보자. o1의 구성은 독특하며, 앞서 논의한 논문들과는 다르다. 또한 추론 시점 연산의 경제성(tokenomics), 즉 비용, KV 캐시 스케일링(KV Cache scaling), 배치 처리(batch processing) 등을 포함해 자세히 살펴볼 것이다. 마지막으로, OpenAI가 Orion에서 앞으로 어떤 작업을 하고 있는지, 그리고 이를 실패로 보는 서사가 왜 부정확한지를 설명할 것이다.
