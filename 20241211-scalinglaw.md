@@ -246,7 +246,7 @@ Best-of-N Sampling은 특정 프롬프트에 대해 N개의 솔루션을 생성�
 
 |레피런스|
 |------|
-| https://semianalysis.com/2024/12/11/scaling-laws-o1-pro-architecture-reasoning-training-infrastructure-orion-and-claude-3-5-opus-failures/![image](https://github.com/user-attachments/assets/77992440-5599-43a4-8acc-e33b8685c214) |
+| https://semianalysis.com/2024/12/11/scaling-laws-o1-pro-architecture-reasoning-training-infrastructure-orion-and-claude-3-5-opus-failures |
 
 
 
