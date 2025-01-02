@@ -117,11 +117,13 @@ SFT 데이터에서 긴 컨텍스트 예제를 인간이 주석 처리(annotate)
 에이전트가 취할 행동을 결정하고 피드백을 통합하는 주요 접근 방식에는 가치 기반(value-based) 방법과 정책 기반(policy-based) 방법이 있다. 정책 기반 방법에는 직접 선호 최적화(Direct Preference Optimization)와 신뢰 구역 정책 최적화(Trust Region Policy Optimization, TRPO)와 같은 방법이 포함되며, 정책 및 가치 기반 방법을 결합한 행위자-비평가(Actor-Critic) 방법도 있다. 근접 정책 최적화(Proximal Policy Optimization, PPO)는 대표적인 행위자-비평가 모델이며, 이를 기반으로 한 더 복잡한 변형들은 주요 AI 연구소들에서 사용되는 기본적인 강화 학습 방법이다.
 반면, 가치 기반 방법은 특정 상태에 도달하는 가치(value)를 계산하고, 가능한 각 상태에 대한 가치를 정의한다. 각 상태는 에이전트가 해당 상태에서 시작할 경우 얻을 수 있는 기대 할인 반환(expected discounted return)에 따라 가치를 부여 받으며, 에이전트는 이용 가능한 각 행동의 가치를 바탕으로 매 단계에서 행동을 결정한다. 과거에는 가치 기반 방법이 강화 학습에서 더 흔히 사용되었지만, 현대의 응용에서는 정책 기반 방법이 훨씬 더 효과적으로 사용되고 있다.
 
-![Source: Huggingface](/20241211-scalinglaw/scale-07.webp)  
+![Source: Huggingface](/20241211-scalinglaw/scale-07.webp) 
+Source: Huggingface
 
 정책 기반 방법(Policy-based methods)에서는 에이전트(Agent)가 정책 함수(policy function)에 의해 작동한다. 이 함수는 주어진 상태(state)에서 취할 수 있는 일련의 행동을 정의하고, 해당 행동들에 확률 분포를 할당한다. 주어진 상태에서 수행할 행동은 결정적(deterministic)일 수 있는데, 이는 각 상태에서 항상 동일한 행동으로 이어진다는 것을 의미한다. 반면, 확률적(stochastic)일 수도 있으며, 이 경우 주어진 상태에서 발생할 수 있는 행동들을 확률 분포로 표현한다. 정책 함수는 기대되는 보상을 최대화하는 행동으로 에이전트를 이끌도록 훈련된다.
 
 ![Source: Huggingface](/20241211-scalinglaw/scale-08.webp) 
+Source: Huggingface
 
 강화 학습(RL)에서 정책 기반 방법을 사용할 때, 모델은 결과 보상 모델(Outcome Reward Model, ORM)을 통해 특정 작업의 최종 결과를 평가하여 보상을 결정하거나, 과정 보상 모델(Process Reward Model, PRM)을 통해 특정 프로세스의 개별 단계마다 보상을 평가하여 결정할 수 있다. PRM은 특히 추론(reasoning) 모델을 훈련할 때 유용한데, ORM은 추론 과정이 잘못된 답으로 이어졌다는 사실을 감지할 수 있지만, PRM은 추론 과정의 어느 단계에서 오류가 발생했는지를 알려줄 수 있다.
 정책 함수(policy function)가 에이전트가 각 단계에서 수행할 행동을 지시하기 때문에, 이는 추론 과정의 중간 단계에서 에이전트나 모델의 행동을 최적화하는 데 특히 유용한 프레임워크로 작용한다.
