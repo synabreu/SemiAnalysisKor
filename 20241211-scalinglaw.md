@@ -19,8 +19,7 @@ SemiAnalysis는 OpenAI의 o1 및 o1 Pro 아키텍처를 학습 인프라 측면�
 
 오늘날 AI 스케일링 법칙에 대한 논쟁은 수십 년간 이어져온 컴퓨트 스케일링과 무어의 법칙을 둘러싼 논쟁과 크게 다르지 않다. CPU 연산 성능을 주로 클럭(clock) 속도라는 지표로만 측정하려는 사람들(이는 대략 데나드 스케일링이 끝나갈 무렵인 2000년대 후반 이전에 흔히 쓰이던 지표)이 있다면, 그들은 그때 이후로 전혀 진전이 없었다고 주장할 것이다. 하지만 실제로 컴퓨트 성능은 줄곧 발전해 왔다. 프로세서 클럭 속도에 한계에 부딪혔을 때, 전력 밀도와 냉각 문제에도 불구하고 초점은 멀티코어 아키텍처 및 기타 성능 향상 기법으로 옮겨갔다. 
 
-![Source: CPU transistor densities, clock speeds, power and performance from 1970-2015 – Charles Leggett](./20241211-scalinglaw/scale-02.webp)
-![Source: CPU transistor densities, clock speeds, power and performance from 1970-2015 – Charles Leggett](https://www.researchgate.net/figure/CPU-transistor-densities-clock-speeds-power-and-performance-from-1970-2015-Courtesy-of_fig1_321233071)
+![Source: CPU transistor densities, clock speeds, power and performance from 1970-2015](./20241211-scalinglaw/scale-02.webp) – [Charles Leggett](https://www.researchgate.net/figure/CPU-transistor-densities-clock-speeds-power-and-performance-from-1970-2015-Courtesy-of_fig1_321233071)
 
 
 무어의 법칙이 끝났다는 주장 역시 반도체 업계가 직면한 또 다른 벽이지만, 최근에는 이 논쟁이 한결 잠잠해졌다. 엔비디아(Nvidia)와 같은 AI 선도 기업들이 완전히 새로운 몇 가지 차원을 따라 컴퓨트 성능을 대폭 향상시켜 왔기 때문이다. 첨단 패키징 기술은 입출력(I/O) 스케일링과 함께, 레티클 크기  한계를 넘어서는 총 실리콘 면적을 활용할 수 있게 하여 컴퓨트 성능의 지속적인 발전을 가능하게 했다. 또한 칩 내부와 칩 간의 병렬 컴퓨팅, 그리고 더 넓은 고대역폭 네트워킹 도메인의 구축은 특히 추론(inference) 작업에서 칩들이 대규모로 더 효율적으로 협력할 수 있는 기반을 마련했다. 
