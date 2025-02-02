@@ -5,8 +5,9 @@ SemiAnalysisKor provides the Korean translation of SemiAnalysis Service
 
 <p style="font-size: 8px;"> Overview: SemiAnalysis is a subscription-based service that provides research and models on the semiconductor and AI industries, available both for free and paid access. Their articles analyze various aspects, including AI scaling laws, challenges faced by companies like Intel, strategies of firms such as Amazon, and the impact of sanctions evasion by Chinese companies. They also sell industry models related to AI accelerators, datacenter capacity, and wafer fabrication. SemiAnalysis primarily focuses on the economic and technological factors driving the AI revolution and the semiconductor industry. Therefore, I only study the free content translated into Korean language. All copyrights for these blog articles belong solely to SemiAnalysis and not to me. Reproducing these articles in any commercial reports without a license may result in legal consequences. </p>
 
+[DeepSeek 논쟁: 전체 비용, 실제 훈련 및 폐쇄 모델 마진 영향 측면에서 본 중국 리더쉽](https://github.com/synabreu/SemiAnalysisKor/blob/main/20250131-DeepSeek.md)(2025년 1월 31일)
 
-[NVIDIA의 크리스마스 선물: GB300 & B300 – 추론을 추론하기(Reasoning Inference), 아마존, 메모리, 공급망](https://github.com/synabreu/SemiAnalysisKor/blob/main/20241225-GB300.md), 2024년 12월 25일
+[NVIDIA의 크리스마스 선물: GB300 & B300 – 추론을 추론하기(Reasoning Inference), 아마존, 메모리, 공급망](https://github.com/synabreu/SemiAnalysisKor/blob/main/20241225-GB300.md)(2024년 12월 25일)
 
 [MI300X vs H100 vs H200 벤치마크 1부: 학습 – 여전히 강력한 CUDA 생태계](https://github.com/synabreu/SemiAnalysisKor/blob/main/20241222-mi300x.md)
 
